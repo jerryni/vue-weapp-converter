@@ -1,8 +1,12 @@
-## install
+## 简介
 
-> npm i vue-weapp-converter -g
+vue文件转成4个小程序文件
 
-## usage
+## 安装
+
+> ynpm i @youzan/vue-weapp-converter -g
+
+## 用法
 
 vwc [your vue file path]
 
