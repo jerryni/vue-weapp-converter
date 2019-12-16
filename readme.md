@@ -26,3 +26,7 @@ script里面做的事：
 项目规范：
 - ts问题修复；
 - eslint
+
+## Contribution
+
+git@gitlab.qima-inc.com:nirizhe/vue-weapp-converter.git
