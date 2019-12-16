@@ -1,10 +1,13 @@
 {
-  "name": "vue-weapp-converter",
+  "name": "@youzan/vue-weapp-converter",
+  "version": "0.1.0",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "vwc": "dist/index.js"
   },
   "preferGlobal": true,
-  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
