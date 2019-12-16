@@ -29,4 +29,4 @@ script里面做的事：
 
 ## Contribution
 
-git@gitlab.qima-inc.com:nirizhe/vue-weapp-converter.git
+http://gitlab.qima-inc.com/nirizhe/vue-weapp-converter
