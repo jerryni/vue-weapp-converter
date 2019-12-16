@@ -1,0 +1,27 @@
+{
+  "name": "vue-weapp-converter",
+  "bin": {
+    "vwc": "dist/index.js"
+  },
+  "preferGlobal": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^12.12.17",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "commander": "^4.0.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
