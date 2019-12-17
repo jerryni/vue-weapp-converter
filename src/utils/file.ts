@@ -32,8 +32,8 @@ const indexJSON = `{
 }
 `;
 function wrapJs(cnt = '') {
-  return `import { VanxComponent } from 'shared/common/base/wsc-component';
+  return `import { GoodsComponent } from '@goods/common/vanx-component';
 
-VanxComponent(${cnt});
+GoodsComponent(${cnt});
 `
 }

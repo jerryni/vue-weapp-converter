@@ -1,6 +1,5 @@
-// import * as fs from 'fs';
-// const HTMLParser = require('./html-parser');
 import { getWXML } from './weapp/template-parser';
+import { getWeappJs } from './weapp/js-parser';
 import { generateWeappFiles } from './utils/file';
 import fs from 'fs-extra';
 import * as path from 'path';
@@ -21,7 +20,7 @@ export const parseVue = (file) => {
 
   generateWeappFiles({
     tpl: getWXML(templateCnt),
-    script: jsCnt,
+    script: getWeappJs(jsCnt),
     style: styleCnt
   }, path.dirname(file));
 }
