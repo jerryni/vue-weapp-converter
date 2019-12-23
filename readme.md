@@ -16,7 +16,6 @@ vwc [vue-file path]
 - [x] v-else，还有v-else-if之类的;
 - [x] template改成block
 - [x] for循环替换，并提取参数
-- [x] :key => wx:key
 - [] for循环2个参数的时候(item, item)；
 - [] class变量，{}和[]的转化成3元表达式；
 - [] a 标签改成 navigator; href => path;
@@ -37,6 +36,7 @@ script里面做的事：
 项目规范：
 - [] ts问题修复；
 - [] eslint
+- 添加单侧
 
 ## Contribution
 
