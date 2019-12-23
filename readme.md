@@ -14,11 +14,25 @@ vwc [your vue file path]
 
 模板层：
 - class变量，{}和[]的转化成3元表达式；
+- v-else，还有v-else-if之类的;
+- template改成block
+- a 标签改成 navigator; href => path;
+- for循环2个参数的时候(item, item)；
+- :key => wx:key
+
+style:
+- @import 'mixins/index.scss';
 
 script里面做的事：
 - 接入ast-parser
 - export default这个对象直接提取出来；
+- import 的东西放到顶部；
 - import + components字段转化成index.json里面的内容
+  - [Icon.name]: Icon => "van-icon": "vant-weapp/dist/icon/index",
+- $emit => triggerEvent
+- props => properties; default => value
+- data() => ready + this.setYZData(); + data {初始化的变量}
+- 顶部的变量赋值还是要保留
 
 项目规范：
 - ts问题修复；
