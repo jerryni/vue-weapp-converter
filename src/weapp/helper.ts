@@ -11,6 +11,10 @@ export const transWeappTag = (tag) => {
     tag = 'image';
   }
 
+  if (tag === 'template') {
+    tag = 'block';
+  }
+
   if (block[tag] || closeSelf[tag]) {
     tag = 'view';
   }
@@ -46,6 +50,12 @@ function wrapVar(v) {
   return `{{ ${v} }}`
 }
 
+const replaceMap = {
+  'v-if': 'wx:if',
+  'v-else': 'wx:else',
+  'v-else-if': 'wx:elif'
+}
+
 // * v-if="xx" => wx:if="{{ xx }}"
 //  * v-for="item in layoutTop" => wx:for="{{ layoutTop }}", + item
 //  * wx:for-item="item" (上面的item)
@@ -58,8 +68,8 @@ export const transWeappAttr = ({
   let needsWrap = false;
   let _addStr = '';
 
-  if (name === 'v-if') {
-    name = 'wx:if'
+  if (replaceMap[name]) {
+    name = replaceMap[name]
     needsWrap = true;
   }
 
@@ -81,17 +91,17 @@ export const transWeappAttr = ({
     needsWrap = !isObjectOrArrayStr(value);
 
     // TODO: 把对象也解析失败
-    if (isObjectStr(value)) {
+    // if (isObjectStr(value)) {
       // const parsedValue = JSON.parse(value);
 
       // value = '';
       // Object.keys(parsedValue).forEach(key => {
       //   value += ` {{ ${parsedValue(key)} ? '${key}' : ''}}`;
       // })
-    }
+    // }
 
     // TODO：数组字符传解析失败
-    if (isArrayStr) {
+    // if (isArrayStr) {
       // value = value.toString().replace(/'/g, '"');
       // const parsedValue = JSON.parse(value);
 
@@ -107,7 +117,7 @@ export const transWeappAttr = ({
       //     })
       //   }
       // })
-    }
+    // }
   }
 
   if (isVueEvent(name)) {
