@@ -24,15 +24,14 @@ style:
 - @import 'mixins/index.scss';
 
 script里面做的事：
-- 接入ast-parser
-- export default这个对象直接提取出来；
-- import 的东西放到顶部；
+- [x] props => properties; default => value
+- [x] 顶部的变量赋值还是要保留
+- [x] import 的东西放到顶部；
+- [x] $emit => triggerEvent
 - import + components字段转化成index.json里面的内容
   - [Icon.name]: Icon => "van-icon": "vant-weapp/dist/icon/index",
-- $emit => triggerEvent
-- props => properties; default => value
 - data() => ready + this.setYZData(); + data {初始化的变量}
-- 顶部的变量赋值还是要保留
+
 
 项目规范：
 - ts问题修复；

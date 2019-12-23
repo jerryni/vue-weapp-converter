@@ -5,13 +5,36 @@ export const getWeappJs = (content: string = '') => {
   let jsStr = '';
 
   const root = j(content);
-  const collection = root.find(j.ExportDefaultDeclaration, {
+
+  root.get().node.program.body.unshift(`import { VanxComponent } from 'shared/common/base/wsc-component';`)
+
+  root.find(j.ExportDefaultDeclaration, {
     declaration: {
       type: 'ObjectExpression'
     }
-  }).nodes()[0].declaration;
+  })
+    // export => goodsCompoents
+    .replaceWith((path) => {
+      return j.expressionStatement(
+        j.callExpression(
+          j.identifier('GoodsComponent'),
+          [j.objectExpression(
+            path.node.declaration.properties,
+          )]
+        )
+      )
+    })
 
-  jsStr = j(collection).toSource() || '';
+  root.find(j.Identifier, { name: 'props' })
+    .replaceWith(j.identifier('properties'))
+
+  root.find(j.Identifier, { name: 'default' })
+    .replaceWith(j.identifier('value'));
+
+  root.find(j.Identifier, { name: '$emit' })
+    .replaceWith(j.identifier('triggerEvent'))
+
+  jsStr = root.toSource();
 
   return jsStr;
 }
