@@ -13,15 +13,16 @@ vwc [vue-file path]
 ## todo
 
 模板层：
-- [] class变量，{}和[]的转化成3元表达式；
 - [x] v-else，还有v-else-if之类的;
-- [] template改成block
-- [] a 标签改成 navigator; href => path;
+- [x] template改成block
+- [x] for循环替换，并提取参数
+- [x] :key => wx:key
 - [] for循环2个参数的时候(item, item)；
-- [] :key => wx:key
+- [] class变量，{}和[]的转化成3元表达式；
+- [] a 标签改成 navigator; href => path;
 
 style:
-- @import 'mixins/index.scss';
+- @import 'mixins/index.scss'; 替换
 
 script里面做的事：
 - [x] props => properties; default => value

@@ -51,9 +51,18 @@ function wrapVar(v) {
 }
 
 const replaceMap = {
-  'v-if': 'wx:if',
-  'v-else': 'wx:else',
-  'v-else-if': 'wx:elif'
+  'v-if': {
+    name: 'wx:if',
+    needsWrap: true
+  },
+  'v-else-if': {
+    name: 'wx:elif',
+    needsWrap: true
+  },
+  'v-else': {
+    name: 'wx:else',
+    needsWrap: false
+  },
 }
 
 // * v-if="xx" => wx:if="{{ xx }}"
@@ -68,9 +77,11 @@ export const transWeappAttr = ({
   let needsWrap = false;
   let _addStr = '';
 
-  if (replaceMap[name]) {
-    name = replaceMap[name]
-    needsWrap = true;
+  const replacement = replaceMap[name]
+
+  if (replacement) {
+    name = replacement.name;
+    needsWrap = replacement.needsWrap;
   }
 
   if (name === 'v-for') {
