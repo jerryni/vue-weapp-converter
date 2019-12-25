@@ -32,6 +32,8 @@ script里面做的事：
   - [Icon.name]: Icon => "van-icon": "vant-weapp/dist/icon/index",
 - [] data() => ready + this.setYZData(); + data {初始化的变量}
 
+其他：
+- compiler.parseComponent里出来的内容 开头回车符的问题；
 
 项目规范：
 - [] ts问题修复；

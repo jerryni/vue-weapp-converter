@@ -6,7 +6,7 @@ export const getWeappJs = (content: string = '') => {
 
   const root = j(content);
 
-  root.get().node.program.body.unshift(`import { VanxComponent } from 'shared/common/base/wsc-component';`)
+  root.get().node.program.body.unshift(`import { GoodsComponent } from '@goods/common/vanx-component';`)
 
   root.find(j.ExportDefaultDeclaration, {
     declaration: {
