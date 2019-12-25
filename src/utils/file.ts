@@ -26,7 +26,7 @@ function writeFile(path, cnt, successMsg = '') {
 }
 
 const indexJSON = `{
-  "component":
+  "component": true,
   "usingComponents":{
   }
 }
