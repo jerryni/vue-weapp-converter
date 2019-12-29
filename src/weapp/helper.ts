@@ -39,11 +39,35 @@ function isObjectOrArrayStr(name) {
 }
 
 function isArrayStr(name) {
-  return /^\[/.test(name);
+  return /^\[[\s\S]+\]$/.test(name);
 }
 
-function isObjectStr(name) {
-  return /^\{/.test(name);
+function isObject(o) {
+  return Object.prototype.toString.call(o) === '[object Object]';
+}
+/**
+ *
+ "[ 'ass', { 'xxx': isLink } ]" => [ 'ass', { 'xxx': 'isLink' } ]
+ * "ass {{ isLink ? 'xxx' : '' }}"
+ */
+function handleArrayStr(source) {
+  source = source.replace(/[\s:](\w+)[\s:]/g, ' \'$1\'');
+  const arr = new Function(`return ${source}`)();
+
+  let result = '';
+  arr.forEach(item => {
+    if (typeof item === 'string') {
+      result += item + ' ';
+    }
+
+    if (isObject(item)) {
+      Object.keys(item).forEach(key => {
+        result += `{{ ${item[key]} ? '${key}' : '' }}`;
+      })
+    }
+  })
+
+  return result;
 }
 
 function wrapVar(v) {
@@ -76,7 +100,6 @@ export const transWeappAttr = ({
 }) => {
   let needsWrap = false;
   let _addStr = '';
-
   const replacement = replaceMap[name]
 
   if (replacement) {
@@ -101,34 +124,12 @@ export const transWeappAttr = ({
     name = name.replace(':', '');
     needsWrap = !isObjectOrArrayStr(value);
 
-    // TODO: 把对象也解析失败
-    // if (isObjectStr(value)) {
-      // const parsedValue = JSON.parse(value);
+    // TODO: 可能会遇到的对象字符串
+    // if (isObjectStr(value)) { }
 
-      // value = '';
-      // Object.keys(parsedValue).forEach(key => {
-      //   value += ` {{ ${parsedValue(key)} ? '${key}' : ''}}`;
-      // })
-    // }
-
-    // TODO：数组字符传解析失败
-    // if (isArrayStr) {
-      // value = value.toString().replace(/'/g, '"');
-      // const parsedValue = JSON.parse(value);
-
-      // console.log('parsedValue', parsedValue)
-
-      // value = '';
-      // parsedValue.forEach(v => {
-      //   if (typeof v === 'string') {
-      //     value += ` ${v}`;
-      //   } else {
-      //     Object.keys(v).forEach(key => {
-      //       value += ` {{ ${v(key)} ? '${key}' : ''}}`;
-      //     })
-      //   }
-      // })
-    // }
+    if (isArrayStr(value)) {
+      value = handleArrayStr(value);
+    }
   }
 
   if (isVueEvent(name)) {
