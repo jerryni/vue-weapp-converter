@@ -1,13 +1,13 @@
 #! /usr/bin/env node
 
 import fs from 'fs-extra';
-import { parseVue } from './parse-vue';
 import program from 'commander';
+import { parseVue } from './parse-vue';
 
 let filePath = null;
 
 program
-  .version('0.1.0')
+  .version('0.4.0')
   .arguments('<cmd>')
   .action(function (cmd) {
     filePath = cmd;
