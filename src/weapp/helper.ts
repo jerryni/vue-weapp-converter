@@ -15,12 +15,8 @@ export const transWeappTag = (tag) => {
     tag = 'block';
   }
 
-  if (block[tag] || closeSelf[tag]) {
+  if (block[tag] || closeSelf[tag] || inline[tag]) {
     tag = 'view';
-  }
-
-  if (inline[tag]) {
-    tag = 'text';
   }
 
   return tag;
@@ -96,7 +92,7 @@ const replaceMap = {
 export const transWeappAttr = ({
   name,
   value,
-  ...rest,
+  ...rest
 }) => {
   let needsWrap = false;
   let _addStr = '';

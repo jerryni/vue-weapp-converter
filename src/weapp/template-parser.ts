@@ -1,13 +1,13 @@
 import { VueHTMLParser } from '../utils/vue-html-parser';
 import { transWeappTag, transWeappAttr } from './helper';
 
-export const getWXML = (content: string = '') => {
+export const getWXML = (content = ''): string => {
   let wxmlStr = "";
   VueHTMLParser(content, {
     start: function( tag, attrs, unary ) {
       tag = transWeappTag(tag);
       wxmlStr += "<" + tag;
-      for ( var i = 0; i < attrs.length; i++ ) {
+      for ( let i = 0; i < attrs.length; i++ ) {
         const newAttr = transWeappAttr(attrs[i])
 
         wxmlStr += " " + newAttr.name;

@@ -15,18 +15,14 @@
         "module": "commonjs",
         "outDir": "dist",
         "allowJs": true,
+        "checkJs": false,
         "lib": [
             "dom",
             "es2017"
         ]
     },
     "exclude": [
-        "cmd",
-        "esm",
         "coverage",
-        "old",
-        ".felint",
-        ".milti_hooks",
         "**/test/**/*.spec.ts",
         "dist",
     ],

@@ -1,7 +1,7 @@
 import j from 'jscodeshift';
 // const describe = require('jscodeshift-helper').describe;
 
-export const getWeappJs = (content: string = '') => {
+export const getWeappJs = (content = '') => {
   let jsStr = '';
 
   const root = j(content);
@@ -19,6 +19,7 @@ export const getWeappJs = (content: string = '') => {
         j.callExpression(
           j.identifier('GoodsComponent'),
           [j.objectExpression(
+            // @ts-ignore hack
             path.node.declaration.properties,
           )]
         )
