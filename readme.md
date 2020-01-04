@@ -34,7 +34,7 @@ script里面做的事：
 - data() => ready + this.setYZData(); + data {初始化的变量}
 
 其他：
-- compiler.parseComponent里出来的内容 开头回车符的问题；
+- :ballot_box_with_check: compiler.parseComponent里出来的内容 开头回车符的问题；
 - 一些固定的模板内容提取出来，比如goodsComponents这种
 
 项目规范：

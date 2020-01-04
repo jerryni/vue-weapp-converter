@@ -1,6 +1,7 @@
 import { getWXML } from './weapp/template-parser';
 import { getWeappJs } from './weapp/js-parser';
 import { generateWeappFiles } from './utils/file';
+import { formatVueStr } from './utils';
 import fs from 'fs-extra';
 import * as path from 'path';
 import * as compiler from 'vue-template-compiler';
@@ -12,9 +13,9 @@ import * as compiler from 'vue-template-compiler';
 export const parseVue = (file) => {
   const content = fs.readFileSync(file, 'utf8');
   const vueContent = compiler.parseComponent(content);
-  const templateCnt = vueContent?.template?.content?.toString() || '';
-  const jsCnt = vueContent?.script?.content?.toString() || '';
-  const styleCnt = vueContent.styles[0].content.toString();
+  const templateCnt = formatVueStr(vueContent?.template?.content);
+  const jsCnt = formatVueStr(vueContent?.script?.content);
+  const styleCnt = formatVueStr(vueContent.styles[0]?.content);
 
   generateWeappFiles({
     tpl: getWXML(templateCnt),
