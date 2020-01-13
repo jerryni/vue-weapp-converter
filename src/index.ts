@@ -7,7 +7,7 @@ import { parseVue } from './parse-vue';
 let filePath = null;
 
 program
-  .version('0.4.0')
+  .version('0.4.1')
   .arguments('<cmd>')
   .action(function (cmd) {
     filePath = cmd;
