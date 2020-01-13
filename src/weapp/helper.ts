@@ -47,7 +47,7 @@ function isObject(o) {
  * "ass {{ isLink ? 'xxx' : '' }}"
  */
 function handleArrayStr(source) {
-  source = source.replace(/[\s:](\w+)[\s:]/g, ' \'$1\'');
+  source = source.replace(/[\s:]([\w\.]+)[\s:]/g, ' \'$1\'');
   const arr = new Function(`return ${source}`)();
 
   let result = '';
