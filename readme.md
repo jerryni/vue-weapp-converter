@@ -2,6 +2,13 @@
 
 vue小程序转化器，vue文件转成对应的4个小程序文件
 
+## 功能简介
+
+script层xxx
+template xxx
+css不动；
+xx转化；
+
 ## 安装
 
 > ynpm i @youzan/vue-weapp-converter -g
@@ -11,6 +18,9 @@ vue小程序转化器，vue文件转成对应的4个小程序文件
 vwc [vue-file path]
 
 ## todo
+
+goodsComponent的提取；
+代码review一下；
 
 模板层：
 - :ballot_box_with_check: v-else，还有v-else-if之类的;

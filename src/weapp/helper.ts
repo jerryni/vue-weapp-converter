@@ -95,7 +95,7 @@ export const transWeappAttr = ({
   ...rest
 }) => {
   let needsWrap = false;
-  let _addStr = '';
+  let extraStr = '';
   const replacement = replaceMap[name]
 
   if (replacement) {
@@ -109,7 +109,7 @@ export const transWeappAttr = ({
     const [, forItem, traverseVar] = value.match(/([^\s]+)\s+in\s+([^\s]+)/) || ['' , '', value];
 
     if (forItem) {
-      _addStr = `wx:for-item="${forItem}"`;
+      extraStr = `wx:for-item="${forItem}"`;
     }
 
     value = traverseVar;
@@ -140,7 +140,7 @@ export const transWeappAttr = ({
 
   return {
     ...rest,
-    _addStr,
+    extraStr,
     name,
     value: needsWrap ? wrapVar(value) : value
   };

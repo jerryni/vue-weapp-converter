@@ -17,7 +17,7 @@ export function generateWeappFiles(content = {
   writeFile(path.join(basePath, 'index.json'), indexJSON, 'save index.json ok');
 }
 
-function writeFile(path, cnt, successMsg = '') {
+export function writeFile(path, cnt, successMsg = '') {
   fs.writeFile(path, cnt, 'utf8', err => {
     if (err) throw err;
 
@@ -25,6 +25,18 @@ function writeFile(path, cnt, successMsg = '') {
   })
 }
 
+export function checkFilePath(filePath = '') {
+  return new Promise((resolve, reject) => {
+    if (fs.existsSync(filePath)) {
+      console.log('your file:', filePath)
+      resolve(filePath);
+    } else {
+      console.log('file doesn\'t exist');
+      process.exit(1);
+      reject(filePath);
+    }
+  })
+}
 const indexJSON = `{
   "component": true,
   "usingComponents": {}

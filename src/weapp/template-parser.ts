@@ -17,8 +17,8 @@ export const getWXML = (content = ''): string => {
         }
 
         // 有些属性要拆成2个属性；
-        if (newAttr._addStr) {
-          wxmlStr += " " + newAttr._addStr;
+        if (newAttr.extraStr) {
+          wxmlStr += " " + newAttr.extraStr;
         }
       }
 
