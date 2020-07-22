@@ -9,7 +9,7 @@ template xxx
 css不动；
 xx转化；
 
-## 安装
+## 全局安装
 
 > ynpm i @youzan/vue-weapp-converter -g
 
