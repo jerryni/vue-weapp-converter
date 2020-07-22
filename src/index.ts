@@ -9,7 +9,7 @@ import { checkFilePath } from './utils/file';
 let filePath = null;
 
 program
-  .version('0.5.2')
+  .version('0.5.3')
   .arguments('<cmd>')
   .option('-r, --reverse <path>', 'weapp to vue')
   .action(function (cmd) {
