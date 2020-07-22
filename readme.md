@@ -1,13 +1,10 @@
 ## 简介
 
-vue小程序转化器, vue能转成4个微信小程序文件，4个文件也能转成一个tee-vue文件
+vue小程序转化器
 
 ## 功能简介
 
-script层xxx
-template xxx
-css不动；
-xx转化；
+vue能转成4个微信小程序文件，4个文件也能转成一个tee-vue文件
 
 ## 全局安装
 
@@ -15,10 +12,10 @@ xx转化；
 
 ## 用法
 
-1. 可以把vue转成4个微信小程序文件
+1. 可以把vue转成4个微信小程序文件，传入vue文件地址
 > vwc [vue-file path]
 
-2. 可以把weapp的4个文件转成tee-vue文件
+2. 可以把weapp的4个文件转成tee-vue文件，传入4个weapp文件夹路径
 > vwc -r [file folder path]
 
 ## vue转weapp已完成功能
