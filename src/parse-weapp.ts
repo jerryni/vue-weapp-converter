@@ -16,9 +16,7 @@ function handleFile(files) {
     const data = fs.readFileSync(file, 'utf8');
     switch (path.extname(file)) {
       case '.wxml':
-        // TODO: weapp属性名转成vue的属性名
-        console.log('parseWeappTpl', parseWeappTpl(data));
-        result.tpl = data;
+        result.tpl = parseWeappTpl(data);
         break;
       case '.js':
         result.script = data;
@@ -46,12 +44,13 @@ function genVueFile(filePath, vueObj) {
 <style lang="scss">
   ${vueObj.style}
 </style>
-`
-  writeFile(path.join(filePath, 'index.vue'), str, 'save index.vue ok');
+`;
+  const _filePath = path.join(filePath, 'index.vue');
+  writeFile(_filePath, str, `save ${_filePath} ok`);
 }
 
 export const parseWeapp = (filePath) => {
-  let targetfiles:string[] = [];
+  const targetfiles: string[] = [];
   fs.readdir(filePath, (err, files) => {
     if (err) {
       throw err;

@@ -11,7 +11,7 @@ function transAttrToVue({
     newName = '@click';
   } else if (name.indexOf('wx:') > -1) {
     if (name === 'wx:elif') {
-      name = 'v-else-if'
+      newName = 'v-else-if'
     } else {
       newName = name.replace('wx:', 'v-');
     }
