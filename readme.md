@@ -15,7 +15,11 @@ xx转化；
 
 ## 用法
 
-vwc [vue-file path]
+1. 可以把vue转成4个微信小程序文件
+> vwc [vue-file path]
+
+2. 可以把weapp的4个文件转成tee文件
+> vwc -r [file folder path]
 
 ## todo
 
