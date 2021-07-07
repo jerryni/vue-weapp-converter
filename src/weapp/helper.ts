@@ -66,7 +66,7 @@ function handleArrayStr(source) {
   return result;
 }
 
-function wrapVar(v) {
+export function wrapVar(v) {
   return `{{ ${v} }}`
 }
 
