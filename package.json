@@ -12,7 +12,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf dist && tsc -w",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^26.0.24",
     "@types/jscodeshift": "^0.6.3",
     "@types/node": "^12.12.17",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
@@ -38,9 +40,12 @@
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^3.1.0",
+    "jest": "^27.0.6",
     "jscodeshift-helper": "^1.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.0.0",
     "typescript": "^3.7.3"
   },
   "dependencies": {
