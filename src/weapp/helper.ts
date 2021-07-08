@@ -6,39 +6,41 @@ import { block, inline, closeSelf } from '../utils/html-parser';
  * img => image
  * @param {*} tag
  */
-export const transWeappTag = (tag) => {
+export const transWeappTag: (tag: keyof HTMLElementTagNameMap) => string = (tag) => {
+  let weappTag = '';
+
   if (tag === 'img') {
-    tag = 'image';
+    weappTag = 'image';
   }
 
   if (tag === 'template') {
-    tag = 'block';
+    weappTag = 'block';
   }
 
   if (block[tag] || closeSelf[tag] || inline[tag]) {
-    tag = 'view';
+    weappTag = 'view';
   }
 
-  return tag;
+  return weappTag;
 }
 
-function isVueVar(name) {
+function isVueVar(name: string): boolean {
   return /^:/.test(name);
 }
 
-function isVueEvent(name) {
+function isVueEvent(name: string): boolean {
   return /^@/.test(name);
 }
 
-function isObjectOrArrayStr(name) {
+function isObjectOrArrayStr(name: string): boolean {
   return /^(\{|\[)/.test(name);
 }
 
-function isArrayStr(name) {
+function isArrayStr(name: string): boolean {
   return /^\[[\s\S]+\]$/.test(name);
 }
 
-function isObject(o) {
+function isObject(o: any): boolean {
   return Object.prototype.toString.call(o) === '[object Object]';
 }
 /**
@@ -46,7 +48,7 @@ function isObject(o) {
  "[ 'ass', { 'xxx': isLink } ]" => [ 'ass', { 'xxx': 'isLink' } ]
  * "ass {{ isLink ? 'xxx' : '' }}"
  */
-function handleArrayStr(source) {
+function handleArrayStr(source: string): string {
   source = source.replace(/[\s:]([\w\.]+)[\s:]/g, ' \'$1\'');
   const arr = new Function(`return ${source}`)();
 
@@ -66,7 +68,7 @@ function handleArrayStr(source) {
   return result;
 }
 
-export function wrapVar(v) {
+export function wrapVar(v: string): string {
   return `{{ ${v} }}`
 }
 
@@ -89,7 +91,7 @@ const replaceMap = {
 //  * v-for="item in layoutTop" => wx:for="{{ layoutTop }}", + item
 //  * wx:for-item="item" (上面的item)
 // img => image :src => src="{{ }}"
-export const transWeappAttr = ({
+export const transWeappAttr: (vueAttr: VueAttr) => VueAttr = ({
   name,
   value,
   ...rest

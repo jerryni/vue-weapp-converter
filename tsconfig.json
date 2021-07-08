@@ -2,6 +2,7 @@
     "compilerOptions": {
         "moduleResolution": "node",
         "target": "es2017", // 生成的代码兼容到es2015
+        "noImplicitAny": true,
         "sourceRoot": "./",
         "sourceMap": true,
         "strictNullChecks": true,
@@ -21,7 +22,12 @@
             "es2017"
         ]
     },
+    "types": [
+      "jest"
+    ],
+    "include": ["src/**/*", "definitions"],
     "exclude": [
+        "node_modules",
         "coverage",
         "**/test/**/*.spec.ts",
         "dist",

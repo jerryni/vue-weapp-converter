@@ -25,8 +25,8 @@
  *
  */
 
-function makeMap(str){
-  const obj = {}, items = str.split(",");
+function makeMap(str: string): object {
+  const obj = {}, items = str.split(',');
   for ( let i = 0; i < items.length; i++ )
     obj[ items[i] ] = true;
   return obj;

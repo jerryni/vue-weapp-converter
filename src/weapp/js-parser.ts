@@ -6,18 +6,16 @@ export const getWeappJs = (content = '') => {
 
   const root = j(content);
 
-  root.get().node.program.body.unshift(`import { GoodsComponent } from '@goods/common/vanx-component';`)
-
   root.find(j.ExportDefaultDeclaration, {
     declaration: {
       type: 'ObjectExpression'
     }
   })
-    // export => goodsCompoents
+    // export => Compoent
     .replaceWith((path) => {
       return j.expressionStatement(
         j.callExpression(
-          j.identifier('GoodsComponent'),
+          j.identifier('Component'),
           [j.objectExpression(
             // @ts-ignore hack
             path.node.declaration.properties,

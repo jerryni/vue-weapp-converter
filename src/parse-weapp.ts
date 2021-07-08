@@ -5,7 +5,7 @@ import { parseWeappTpl } from './weapp/weapp2vue'
 
 const supportFileExt = ['.wxml', '.js', '.json', '.scss', '.css'];
 
-function handleFile(files) {
+function handleFile(files: string[]): VueFileContent {
   const result = {
     tpl: '',
     script: '',
@@ -33,24 +33,24 @@ function handleFile(files) {
   return result;
 }
 
-function genVueFile(filePath, vueObj) {
+function genVueFile(filePath: string, vueFile: VueFileContent): void {
   const str = `<template>
-  ${vueObj.tpl}
+  ${vueFile.tpl}
 </template>
 <script>
   export default
-  ${vueObj.script}
+  ${vueFile.script}
 </script>
-<style lang="scss">
-  ${vueObj.style}
+<style>
+  ${vueFile.style}
 </style>
 `;
   const _filePath = path.join(filePath, 'index.vue');
   writeFile(_filePath, str, `save ${_filePath} ok`);
 }
 
-export const parseWeapp = (filePath) => {
-  const targetfiles: string[] = [];
+export const parseWeapp: (filePath: string) => void = (filePath) => {
+  const targetFiles: string[] = [];
   fs.readdir(filePath, (err, files) => {
     if (err) {
       throw err;
@@ -60,11 +60,11 @@ export const parseWeapp = (filePath) => {
       if (supportFileExt.indexOf(path.extname(file)) > -1) {
         const fullPath = path.join(filePath, file);
 
-        targetfiles.push(fullPath);
+        targetFiles.push(fullPath);
       }
     })
 
-    const result = handleFile(targetfiles);
+    const result = handleFile(targetFiles);
     genVueFile(filePath, result);
   })
 }

@@ -10,7 +10,7 @@ import * as compiler from 'vue-template-compiler';
  * 1. parse vue
  * 2. gen weapp files
  */
-export const parseVue = (file) => {
+export const parseVue: (file: string) => void = (file) => {
   const content = fs.readFileSync(file, 'utf8');
   const vueContent = compiler.parseComponent(content);
   const templateCnt = formatVueStr(vueContent?.template?.content);
