@@ -9,3 +9,5 @@ interface VueAttr {
   value: string;
   [key: string]: any;
 }
+
+type PlainObj = { [key: string]: any };

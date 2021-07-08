@@ -4,9 +4,9 @@ import { transWeappTag, transWeappAttr } from './helper';
 export const getWXML = (content = ''): string => {
   let wxmlStr = "";
   VueHTMLParser(content, {
-    start: function( tag, attrs, unary ) {
-      tag = transWeappTag(tag);
-      wxmlStr += "<" + tag;
+    start: function( tag: keyof HTMLElementTagNameMap, attrs, unary ) {
+      const weappTag = transWeappTag(tag);
+      wxmlStr += "<" + weappTag;
       for ( let i = 0; i < attrs.length; i++ ) {
         const newAttr = transWeappAttr(attrs[i])
 

@@ -53,7 +53,7 @@ function handleArrayStr(source: string): string {
   const arr = new Function(`return ${source}`)();
 
   let result = '';
-  arr.forEach(item => {
+  arr.forEach((item: any) => {
     if (typeof item === 'string') {
       result += item + ' ';
     }
@@ -72,7 +72,7 @@ export function wrapVar(v: string): string {
   return `{{ ${v} }}`
 }
 
-const replaceMap = {
+const replaceMap: PlainObj = {
   'v-if': {
     name: 'wx:if',
     needsWrap: true
