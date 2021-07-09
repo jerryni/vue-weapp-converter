@@ -8,7 +8,7 @@ vue能转成4个微信小程序文件，4个文件也能转成一个tee-vue文�
 
 ## 全局安装
 
-> ynpm i @youzan/vue-weapp-converter -g
+> ynpm i vue-weapp-converter -g
 
 ## 用法
 

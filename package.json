@@ -1,5 +1,5 @@
 {
-  "name": "@youzan/vue-weapp-converter",
+  "name": "vue-weapp-converter",
   "version": "0.5.3",
   "files": [
     "dist"
