@@ -12,6 +12,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf dist && tsc -w",
+    "release": "sh ./build/release.sh",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },

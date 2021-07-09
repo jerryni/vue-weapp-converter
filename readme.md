@@ -8,7 +8,7 @@ vue能转成4个微信小程序文件，4个文件也能转成一个tee-vue文�
 
 ## 全局安装
 
-> ynpm i vue-weapp-converter -g
+> npm i vue-weapp-converter -g
 
 ## 用法
 
@@ -44,18 +44,15 @@ style:
 - @import 'mixins/index.scss'; 替换
 
 script里面做的事：
-- goodsComponent的提取；
 - import + components字段转化成index.json里面的内容
   - [Icon.name]: Icon => "van-icon": "vant-weapp/dist/icon/index",
 - data() => ready + this.setYZData(); + data {初始化的变量}
 
 其他：
-- 一些固定的模板内容提取出来，比如goodsComponents这种
+- 暂无
 
 项目规范：
-- 添加单侧 jest + coverage
-- ts问题修复；
-- eslint
+- 单测完善
 
 ## Contribution
 

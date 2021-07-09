@@ -8,17 +8,17 @@ export const getWXML = (content = ''): string => {
       const weappTag = transWeappTag(tag);
       wxmlStr += "<" + weappTag;
       for ( let i = 0; i < attrs.length; i++ ) {
-        const newAttr = transWeappAttr(attrs[i])
+        const weappAttr = transWeappAttr(attrs[i])
 
-        wxmlStr += " " + newAttr.name;
+        wxmlStr += " " + weappAttr.name;
 
-        if (newAttr.value) {
-          wxmlStr += '="' + newAttr.value + '"'
+        if (weappAttr.value) {
+          wxmlStr += '="' + weappAttr.value + '"'
         }
 
         // 有些属性要拆成2个属性；
-        if (newAttr.extraStr) {
-          wxmlStr += " " + newAttr.extraStr;
+        if (weappAttr.extraStr) {
+          wxmlStr += " " + weappAttr.extraStr;
         }
       }
 
