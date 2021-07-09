@@ -11,3 +11,5 @@ interface VueAttr {
 }
 
 type PlainObj = { [key: string]: any };
+
+type HTMLElementTagName = keyof HTMLElementTagNameMap;

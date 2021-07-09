@@ -4,7 +4,7 @@ import { transWeappTag, transWeappAttr } from './helper';
 export const getWXML = (content = ''): string => {
   let wxmlStr = "";
   VueHTMLParser(content, {
-    start: function( tag: keyof HTMLElementTagNameMap, attrs, unary ) {
+    start: function( tag: HTMLElementTagName, attrs: Attr[], unary: string ) {
       const weappTag = transWeappTag(tag);
       wxmlStr += "<" + weappTag;
       for ( let i = 0; i < attrs.length; i++ ) {
@@ -24,14 +24,13 @@ export const getWXML = (content = ''): string => {
 
       wxmlStr += (unary ? "/" : "") + ">";
     },
-    end: function( tag ) {
-      tag = transWeappTag(tag);
-      wxmlStr += "</" + tag + ">";
+    end: function( tag: HTMLElementTagName ) {
+      wxmlStr += "</" + transWeappTag(tag) + ">";
     },
-    chars: function( text ) {
+    chars: function( text: string ) {
       wxmlStr += text;
     },
-    comment: function( text ) {
+    comment: function( text: string ) {
       wxmlStr += "<!--" + text + "-->";
     }
   })

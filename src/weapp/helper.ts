@@ -6,7 +6,7 @@ import { block, inline, closeSelf } from '../utils/html-parser';
  * img => image
  * @param {*} tag
  */
-export const transWeappTag: (tag: keyof HTMLElementTagNameMap) => string = (tag) => {
+export const transWeappTag: (tag: HTMLElementTagName) => string = (tag) => {
   let weappTag = '';
 
   if (tag === 'img') {

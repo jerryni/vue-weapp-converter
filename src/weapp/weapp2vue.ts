@@ -3,7 +3,7 @@ import { SimpleHtmlParser } from '../utils/simplehtmlparser';
 function transAttrToVue({
   name,
   value
-}) {
+}: VueAttr): VueAttr {
   let newName = name;
   let newValue = value;
 
@@ -22,12 +22,12 @@ function transAttrToVue({
   }
 
   return {
-    newName,
-    newValue,
+    name: newName,
+    value: newValue,
   }
 }
 
-export const parseWeappTpl = (tpl) => {
+export const parseWeappTpl: (tpl: string) => string = (tpl) => {
   /**
    * 1. weapp的属性 改成 vue的东西
    */
@@ -35,26 +35,26 @@ export const parseWeappTpl = (tpl) => {
 
   let wxmlStr = "";
   singleHtmlParser.parse(tpl, {
-    startElement: function (tag, attrs, unary) {
+    startElement: function (tag: HTMLElementTagName, attrs: Attr[], unary: string ) {
       wxmlStr += "<" + tag;
       for ( let i = 0; i < attrs.length; i++ ) {
-        const { newName, newValue } = transAttrToVue(attrs[i])
+        const { name, value } = transAttrToVue(attrs[i])
 
-        wxmlStr += " " + newName;
+        wxmlStr += " " + name;
 
-        if (newValue) {
-          wxmlStr += '="' + newValue + '"'
+        if (value) {
+          wxmlStr += '="' + value + '"'
         }
       }
       wxmlStr += (unary ? "/" : "") + ">";
     },
-    endElement: function (tag) {
+    endElement: function (tag: HTMLElementTagName) {
       wxmlStr += "</" + tag + ">";
     },
-    characters: function (s) {
+    characters: function (s: string) {
       wxmlStr += s;
     },
-    comment: function (s) {
+    comment: function (s: string) {
       wxmlStr += "<!--" + s + "-->";
     }
   })
