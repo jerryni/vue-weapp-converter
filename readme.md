@@ -59,4 +59,4 @@ script里面做的事：
 
 ## Contribution
 
-http://gitlab.qima-inc.com/nirizhe/vue-weapp-converter
+https://github.com/jerryni/vue-weapp-converter
