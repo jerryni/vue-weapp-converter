@@ -1,14 +1,12 @@
 import { expect } from '@jest/globals';
-import { wrapVar, transWeappAttr } from '../src/weapp/helper';
+import { transWeappAttr } from '../src/weapp/helper';
 
-test('wrapVar', () => {
-  expect(wrapVar('1')).toEqual('{{ 1 }}');
-})
-
-test('transWeappAttr', () => {
-  expect(transWeappAttr({ name: 'v-if', value: 'param' })).toEqual({
-    name: 'wx:if',
-    value: '{{ param }}',
-    extraStr: ''
-  })
+describe('transWeappAttr', () => {
+  it('transform v-if to wx:if', () => {
+    expect(transWeappAttr({ name: 'v-if', value: 'param' })).toEqual({
+      name: 'wx:if',
+      value: '{{ param }}',
+      extraStr: ''
+    })
+  });
 });
