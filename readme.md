@@ -1,4 +1,4 @@
-## 简介
+## Vue Weapp Converter [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jerryni/vue-weapp-converter/blob/master/LICENSE)
 
 vue小程序转化器
 
