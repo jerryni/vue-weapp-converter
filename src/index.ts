@@ -1,12 +1,11 @@
 #! /usr/bin/env node
 
-import fs from 'fs-extra';
 import program from 'commander';
 import { parseVue } from './parse-vue';
 import { parseWeapp } from './parse-weapp';
 import { checkFilePath } from './utils/file';
 
-let filePath = null;
+let filePath = '';
 
 program
   .version('0.5.3')
@@ -31,17 +30,7 @@ if (program.reverse) {
     process.exit(1);
   }
 
-  try {
-    if (fs.existsSync(filePath)) {
-      console.log('your file:', filePath)
-      parseVue(filePath);
-    } else {
-      console.log('file doesn\'t exist');
-      process.exit(1);
-    }
-
-  } catch(err) {
-    console.error(err)
-    process.exit(1);
-  }
+  checkFilePath(filePath).then(() => {
+    parseVue(filePath);
+  })
 }

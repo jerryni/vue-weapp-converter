@@ -3,7 +3,6 @@ import { getWeappJs } from './weapp/js-parser';
 import { generateWeappFiles } from './utils/file';
 import { formatVueStr } from './utils';
 import fs from 'fs-extra';
-import * as path from 'path';
 import * as compiler from 'vue-template-compiler';
 
 /**
@@ -21,5 +20,5 @@ export const parseVue: (file: string) => void = (file) => {
     tpl: getWXML(templateCnt),
     script: getWeappJs(jsCnt),
     style: styleCnt
-  }, path.dirname(file));
+  }, file);
 }
