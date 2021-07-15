@@ -14,7 +14,8 @@
     "dev": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && tsc",
     "release": "sh ./build/release.sh",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --ci --coverage"
   },
   "keywords": [
     "vue",
@@ -60,9 +61,5 @@
     "signale": "^1.4.0",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
-  },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
   }
 }

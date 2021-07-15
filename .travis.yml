@@ -4,4 +4,4 @@ before_install:
 node_js:
   - 14
 script:
-  - npm run test && codecov
+  - npm run coverage && codecov
