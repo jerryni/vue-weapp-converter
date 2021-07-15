@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import fs from 'fs';
 import * as path from 'path';
 import { writeFile } from './utils/file'
 import { parseWeappTpl } from './weapp/weapp2vue'

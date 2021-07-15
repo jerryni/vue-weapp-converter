@@ -33,7 +33,7 @@
       "pre-commit": "tsc --noEmit && lint-staged"
     }
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/fs-extra": "^9.0.12",
     "@types/jest": "^26.0.24",
@@ -57,7 +57,6 @@
   "dependencies": {
     "@types/signale": "^1.4.2",
     "commander": "^4.0.1",
-    "fs-extra": "^8.1.0",
     "jscodeshift": "^0.7.0",
     "signale": "^1.4.0",
     "vue": "^2.6.10",

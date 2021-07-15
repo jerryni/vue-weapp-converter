@@ -1,6 +1,20 @@
 import { expect } from '@jest/globals';
-import { wrapVar } from '../src/weapp/helper';
+import { transWeappAttr } from '../src/weapp/helper';
 
-test('', () => {
-  expect(wrapVar('1')).toEqual('{{ 1 }}');
-})
+describe('transWeappAttr', () => {
+  it('transform v-if to wx:if', () => {
+    expect(transWeappAttr({ name: 'v-if', value: 'param' })).toEqual({
+      name: 'wx:if',
+      value: '{{ param }}',
+      extraStr: ''
+    })
+  });
+
+  it('transform :src to src="{{ }}"', () => {
+    expect(transWeappAttr({ name: ':src', value: 'param' })).toEqual({
+      name: 'src',
+      value: '{{ param }}',
+      extraStr: ''
+    })
+  });
+});

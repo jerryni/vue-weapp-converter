@@ -2,7 +2,7 @@ import { getWXML } from './weapp/template-parser';
 import { getWeappJs } from './weapp/js-parser';
 import { generateWeappFiles } from './utils/file';
 import { formatVueStr } from './utils';
-import fs from 'fs-extra';
+import fs from 'fs';
 import * as compiler from 'vue-template-compiler';
 
 /**
