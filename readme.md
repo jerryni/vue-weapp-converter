@@ -1,4 +1,4 @@
-## Vue Weapp Converter [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jerryni/vue-weapp-converter/blob/master/LICENSE) ![travis](https://travis-ci.com/jerryni/vue-weapp-converter.svg?branch=master)
+## Vue Weapp Converter [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jerryni/vue-weapp-converter/blob/master/LICENSE) ![travis](https://travis-ci.com/jerryni/vue-weapp-converter.svg?branch=master) [![codecov](https://codecov.io/gh/jerryni/vue-weapp-converter/branch/master/graph/badge.svg?token=SPOD7XLQ13)](https://codecov.io/gh/jerryni/vue-weapp-converter)
 
 vue小程序转化器
 
