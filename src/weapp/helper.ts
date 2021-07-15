@@ -11,13 +11,9 @@ export const transWeappTag: (tag: HTMLElementTagName) => string = (tag) => {
 
   if (tag === 'img') {
     weappTag = 'image';
-  }
-
-  if (tag === 'template') {
+  } else if (tag === 'template') {
     weappTag = 'block';
-  }
-
-  if (block[tag] || closeSelf[tag] || inline[tag]) {
+  } else if (block[tag] || closeSelf[tag] || inline[tag]) {
     weappTag = 'view';
   }
 

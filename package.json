@@ -14,7 +14,7 @@
     "dev": "rm -rf dist && tsc -w",
     "build": "rm -rf dist && tsc",
     "release": "sh ./build/release.sh",
-    "test": "jest",
+    "test": "jest --watchAll --coverage",
     "coverage": "jest --ci --coverage"
   },
   "keywords": [
