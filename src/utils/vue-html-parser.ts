@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Not type-checking this file because it's mostly vendor code.
  */

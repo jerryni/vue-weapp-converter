@@ -17,7 +17,7 @@ export const transWeappTag: (tag: HTMLElementTagName) => string = (tag) => {
     weappTag = 'view';
   }
 
-  return weappTag;
+  return weappTag || tag;
 }
 
 function isVueVar(name: string): boolean {

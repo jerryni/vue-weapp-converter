@@ -31,6 +31,7 @@
         "coverage",
         "**/test/**/*.spec.ts",
         "dist",
+        "src/utils/vue-html-parser.ts"
     ],
     "compileOnSave": true
 }

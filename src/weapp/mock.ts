@@ -1,11 +1,6 @@
 export const mockData = `
 <div
-  :class="[
-    'page-goods', {
-      'page-goods__fast-buy': isFastBuy,
-      'page-goods__fast-buy-split': isFastBuySplit,
-    }
-  ]"
+  :class="[ 'ass', { 'xxx': isLink } ]"
 >
   <span>sdfsdf</span>
   <div v-if="xxx" class="module-top">
@@ -53,11 +48,9 @@ export const mockData = `
     </component>
   </div>
   <div :style="{ paddingBottom: bottomFixedHeight }" />
-  <!-- 公众号关注模块 -->
+<!-- 公众号关注模块 -->
   <follow-block />
-  <!-- 遮罩层 -->
   <div v-if="displayPop.maskShow" class="module-mask" @click="$dispatch('hideRecommendBottom')"/>
-  <!-- iphone 12 不遵循 z-index 规则，需要把van-pop挪到最外面 -->
   <div id="module-popup" />
   <login-dialog
     v-model="loginStatus"
