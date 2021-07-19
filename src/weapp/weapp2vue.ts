@@ -31,6 +31,7 @@ export const parseWeappTpl: (tpl: string) => string = (tpl) => {
   /**
    * 1. weapp的属性 改成 vue的东西
    */
+  // @ts-ignore
   const singleHtmlParser = new SimpleHtmlParser();
 
   let wxmlStr = "";

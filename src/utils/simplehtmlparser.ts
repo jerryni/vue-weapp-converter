@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Copyright 2004 Erik Arvidsson. All Rights Reserved.
 //
 // This code is triple licensed using Apache Software License 2.0,
@@ -54,12 +55,10 @@ var handler ={
 };
 */
 
-function SimpleHtmlParser()
-{
-}
+function SimpleHtmlParser() {}
 
 SimpleHtmlParser.prototype = {
-
+  constructor: SimpleHtmlParser,
 	handler:	null,
 
 	// regexps
@@ -73,10 +72,10 @@ SimpleHtmlParser.prototype = {
 		if (oHandler)
 			this.contentHandler = oHandler;
 
-		var i = 0;
-		var res, lc, lm, rc, index;
-		var treatAsChars = false;
-		var oThis = this;
+		const i = 0;
+		let res, lc, lm, rc, index;
+		let treatAsChars = false;
+		const oThis = this;
 		while (s.length > 0)
 		{
 			// Comment
@@ -161,7 +160,7 @@ SimpleHtmlParser.prototype = {
 
 	parseStartTag:	function (sTag, sTagName, sRest)
 	{
-		var attrs = this.parseAttributes(sTagName, sRest);
+		const attrs = this.parseAttributes(sTagName, sRest);
 		this.contentHandler.startElement(sTagName, attrs);
 	},
 
@@ -172,8 +171,8 @@ SimpleHtmlParser.prototype = {
 
 	parseAttributes:	function (sTagName, s)
 	{
-		var oThis = this;
-		var attrs = [];
+		const oThis = this;
+		const attrs = [];
 		s.replace(this.attrRe, function (a0, a1, a2, a3, a4, a5, a6)
 		{
 			attrs.push(oThis.parseAttribute(sTagName, a0, a1, a2, a3, a4, a5, a6));
@@ -183,7 +182,7 @@ SimpleHtmlParser.prototype = {
 
 	parseAttribute: function (sTagName, sAttribute, sName)
 	{
-		var value = "";
+		let value = "";
 		if (arguments[7])
 			value = arguments[8];
 		else if (arguments[5])
@@ -191,7 +190,7 @@ SimpleHtmlParser.prototype = {
 		else if (arguments[3])
 			value = arguments[4];
 
-		var empty = !value && !arguments[3];
+		const empty = !value && !arguments[3];
 		return {name: sName, value: empty ? null : value};
 	}
 };

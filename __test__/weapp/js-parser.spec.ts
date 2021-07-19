@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals';
-import { getWeappJs } from '../src/weapp/js-parser';
+import { getWeappJs } from '../../src/weapp/js-parser';
 
 it ('parse weapp js', () => {
   const jsStr = `import { Sku, Toast, Button } from 'vwc';

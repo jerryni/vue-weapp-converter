@@ -59,3 +59,10 @@ export const mockData = `
   <wish-action-sheet v-if="wish.isOpen" />
 </div>
 `
+
+export const weappTpl = `<view class="container">
+  <view bind:tap="foo"></view>
+  <view wx:if="{{ p1 }}"></view>
+  <view wx:elif="{{ p1 }}"></view>
+</view>
+`;

@@ -1,6 +1,6 @@
 import { expect } from '@jest/globals';
-import { getWXML } from '../src/weapp/template-parser';
-import { mockData } from '../src/weapp/mock';
+import { getWXML } from '../../src/weapp/template-parser';
+import { mockData } from '../../src/weapp/mock';
 
 it ('parse template parser', () => {
   expect(getWXML(mockData)).toEqual(`

@@ -1,5 +1,5 @@
 import { expect } from '@jest/globals';
-import { transWeappAttr, transWeappTag } from '../src/weapp/helper';
+import { transWeappAttr, transWeappTag } from '../../src/weapp/helper';
 
 describe('transWeappAttr', () => {
   it('transform v-if to wx:if', () => {
