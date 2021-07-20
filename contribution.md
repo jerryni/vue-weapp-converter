@@ -17,19 +17,20 @@
 
 项目规范：
 - [x] 单测完善
-- [ ] 根据commit自动生成changelog
 
 badge处理：
 - [x] 单测覆盖率
 - [x] ts覆盖率
-- [ ] 代码质量
 
 本地自动化：
 - [ ] 发布打包优化
+- [ ] 根据commit自动生成changelog
+
+功能：
+- [ ] 完善转换的语法
 
 ## 功能列表
-
-## vue转weapp
+### vue转weapp
 - [x] 4个文件导出到一个中划线命名的文件夹里
 - [x] v-else，还有v-else-if之类的;
 - [x] template改成block
@@ -41,6 +42,10 @@ badge处理：
 - [x] import 的东西放到顶部；
 - [x] $emit => triggerEvent
 
-## weapp转vue
+### weapp转vue
 
 - [x] 4个小程序文件合成一个vue文件
+
+## 后期规划
+
+- 小程序转化扩展到多个平台
